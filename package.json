@@ -1,0 +1,32 @@
+{
+  "name": "@blue-tomato/use-retext",
+  "version": "1.0.0",
+  "description": "🔐 React useReducer alternative by Blue Tomato.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blue-tomato/use-rextext.git"
+  },
+  "keywords": [
+    "react",
+    "use-reducer",
+    "alternative",
+    "ues-retext",
+    "blue-tomato"
+  ],
+  "author": "developer@blue-tomato.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blue-tomato/use-rextext/issues"
+  },
+  "homepage": "https://github.com/blue-tomato/use-rextext#readme",
+  "scripts": {
+    "prettier": "prettier '**/*.js' --write"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  }
+}
