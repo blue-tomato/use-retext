@@ -1,12 +1,12 @@
 🔐 React useReducer alternative by Blue Tomato.
 
 # Installation
-Type `npm install @blue-tomato/use-rextext` into your console
+Type `npm install @blue-tomato/use-retext` into your console
 
 # Usage
 ```jsx
 import React from 'react';
-import useRetext from '@blue-tomato/use-rextext';
+import useRetext from '@blue-tomato/use-retext';
 import SideMenu from './SideMenu';
 
 const store = {

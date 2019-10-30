@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blue-tomato/use-rextext.git"
+    "url": "git+https://github.com/blue-tomato/use-retext.git"
   },
   "keywords": [
     "react",
@@ -17,9 +17,9 @@
   "author": "developer@blue-tomato.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/blue-tomato/use-rextext/issues"
+    "url": "https://github.com/blue-tomato/use-retext/issues"
   },
-  "homepage": "https://github.com/blue-tomato/use-rextext#readme",
+  "homepage": "https://github.com/blue-tomato/use-retext#readme",
   "scripts": {
     "prettier": "prettier '**/*.js' --write"
   },
