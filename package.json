@@ -1,7 +1,7 @@
 {
   "name": "@blue-tomato/use-retext",
   "version": "1.0.0",
-  "description": "🔐 React useReducer alternative by Blue Tomato.",
+  "description": "🔐 A React useReducer hook alternative to manage component state by Blue Tomato.",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -12,12 +12,16 @@
     "use-reducer",
     "alternative",
     "ues-retext",
-    "blue-tomato"
+    "blue-tomato",
+    "react-hooks",
+    "use-state",
+    "dispatch"
   ],
   "author": "developer@blue-tomato.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/blue-tomato/use-retext/issues"
+    "url": "https://github.com/blue-tomato/use-retext/issues",
+    "email": "developer@blue-tomato.com"
   },
   "homepage": "https://github.com/blue-tomato/use-retext#readme",
   "scripts": {
@@ -28,5 +32,6 @@
   },
   "devDependencies": {
     "prettier": "^1.18.2"
-  }
+  },
+  "private": false
 }
