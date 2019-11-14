@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
-    "@blue-tomato/eslint-config-react": "^1.2.8",
+    "@babel/preset-env": "^7.7.1",
     "eslint": "^6.6.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -45,5 +45,6 @@
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-terser": "^5.1.2"
   },
-  "private": false
+  "private": false,
+  "dependencies": {}
 }

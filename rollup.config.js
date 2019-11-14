@@ -10,9 +10,11 @@ export default (async() => ({
       name: 'bundle'
   },
   plugins: [
-    isProduction && (await import('rollup-plugin-terser')).terser()
-    // babel({
-    //     exclude: 'node_modules/**'
-    // })
+    isProduction && (await import('rollup-plugin-terser')).terser(),
+    babel({
+        exclude: 'node_modules/**',
+        babelrc: false,
+        presets: ["@babel/env"]
+    })
   ]
 }))()
