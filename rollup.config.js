@@ -1,20 +1,32 @@
-import babel from 'rollup-plugin-babel';
+import path from 'path';
+import rimraf from 'rimraf';
+import { terser } from 'rollup-plugin-terser';
+import pkg from './package.json';
 
-const isProduction = process.env.NODE_ENV === 'production';
+const dist = 'dist/';
+const config = {
+  input: path.join('index.js'),
+  external: ['react'],
+  plugins: [terser()],
+};
 
-export default (async() => ({
-  input: './index.js',
-  output: {
-      file: './build/bundle.min.js',
+rimraf.sync(dist);
+
+export default [
+  {
+    ...config,
+    output: {
+      file: path.join(dist, pkg.main),
       format: 'umd',
-      name: 'bundle'
+      name: pkg.name,
+      globals: { react: 'React' },
+    },
   },
-  plugins: [
-    isProduction && (await import('rollup-plugin-terser')).terser(),
-    babel({
-        exclude: 'node_modules/**',
-        babelrc: false,
-        presets: ["@babel/env"]
-    })
-  ]
-}))()
+  {
+    ...config,
+    output: {
+      file: path.join(dist, pkg.module),
+      format: 'esm',
+    },
+  },
+];

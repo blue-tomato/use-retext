@@ -2,7 +2,11 @@
   "name": "@blue-tomato/use-retext",
   "version": "1.0.0",
   "description": "🔐 A React useReducer hook alternative to manage component state by Blue Tomato.",
-  "main": "index.js",
+  "main": "umd/index.js",
+  "module": "esm/index.js",
+  "files": [
+    "dist/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/blue-tomato/use-retext.git"
@@ -25,26 +29,25 @@
   },
   "homepage": "https://github.com/blue-tomato/use-retext#readme",
   "scripts": {
-    "prettier": "prettier '**/*.js' --write",
-    "build": "NODE_ENV=production rollup -c"
+    "lint": "eslint --cache --fix '**/*.{js,jsx}'",
+    "build": "rollup -c",
+    "prepare": "yarn build"
   },
   "peerDependencies": {
     "react": ">=16.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
+    "@blue-tomato/eslint-config-react": "^1.2.8",
     "eslint": "^6.6.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^2.2.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "prettier": "^1.19.1",
-    "rollup": "^1.27.0",
-    "rollup-plugin-babel": "^4.3.3",
+    "react": "^16.12.0",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.27.4",
     "rollup-plugin-terser": "^5.1.2"
-  },
-  "private": false,
-  "dependencies": {}
+  }
 }
