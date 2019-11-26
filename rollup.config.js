@@ -16,7 +16,7 @@ export default [
   {
     ...config,
     output: {
-      file: path.join(dist, pkg.main),
+      file: path.resolve(pkg.main),
       format: 'umd',
       name: pkg.name,
       globals: { react: 'React' },
@@ -25,7 +25,7 @@ export default [
   {
     ...config,
     output: {
-      file: path.join(dist, pkg.module),
+      file: path.resolve(pkg.module),
       format: 'esm',
     },
   },
