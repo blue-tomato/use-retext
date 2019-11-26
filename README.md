@@ -14,7 +14,7 @@ const store = {
     isOpen: false,
     searchTerm: undefined,
   },
-  reducers: {
+  reducer: {
     setSearchTerm: (state, payload) => ({ ...state, searchTerm: payload }),
     sideMenu: {
       toggle: state => ({ ...state, isOpen: !state.open }),
