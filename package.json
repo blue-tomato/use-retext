@@ -1,6 +1,6 @@
 {
   "name": "@blue-tomato/use-retext",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "🔐 A React useReducer hook alternative to manage component state by Blue Tomato.",
   "main": "./dist/umd/index.js",
   "module": "./dist/esm/index.js",
@@ -33,7 +33,7 @@
     "build": "rollup -c",
     "test": "jest",
     "test:watch": "yarn test --watch",
-    "prepare": "yarn build"
+    "prepare": "yarn test && yarn build"
   },
   "peerDependencies": {
     "react": ">=16.8"
@@ -44,7 +44,10 @@
     "@babel/preset-react": "^7.7.4",
     "@blue-tomato/eslint-config-react": "^1.2.8",
     "@testing-library/react-hooks": "^3.2.1",
-    "babel-jest": "^24.9.0",
+    "@types/jest": "^24.0.23",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
     "eslint": "^6.7.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^23.0.4",
@@ -55,9 +58,12 @@
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
     "rimraf": "^3.0.0",
     "rollup": "^1.27.5",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.1.2"
   }
 }

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`in application usage tests the count 1`] = `4`;
+
+exports[`in application usage tests the sideMenu 1`] = `true`;
+
+exports[`return creates a disptach object 1`] = `
+Object {
+  "decrement": [Function],
+  "increment": [Function],
+  "setCount": [Function],
+  "sideMenu": Object {
+    "toggle": [Function],
+  },
+}
+`;
+
+exports[`return keeps the initial state 1`] = `
+Object {
+  "count": 0,
+  "sideMenu": Object {
+    "isOpen": false,
+  },
+}
+`;
+
+exports[`store argument throws an error when no object is passed 1`] = `[Error: Store is not an object]`;
+
+exports[`store argument throws an error when no reducer is passed 1`] = `[Error: State or reducer are not an object]`;
+
+exports[`store argument throws an error when no state is passed 1`] = `[Error: State or reducer are not an object]`;

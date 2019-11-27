@@ -1,13 +1,15 @@
 import path from 'path';
 import rimraf from 'rimraf';
+import babel from 'rollup-plugin-babel';
+import resolve from 'rollup-plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 const dist = 'dist/';
 const config = {
-  input: path.join('index.js'),
+  input: path.join('src/index.js'),
   external: ['react'],
-  plugins: [terser()],
+  plugins: [resolve({ extensions: ['.js', '.jsx'] }), babel(), terser()],
 };
 
 rimraf.sync(dist);

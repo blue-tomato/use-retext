@@ -1,8 +1,5 @@
 import { useMemo, useState } from 'react';
-
-const assert = (condition, message) => {
-  if (condition) throw new Error(message);
-};
+import { assert } from '../helpers';
 
 const mapReducer = (reducer, setState) =>
   Object.entries(reducer).reduce(

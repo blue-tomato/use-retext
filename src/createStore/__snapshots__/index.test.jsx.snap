@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`in application usage updates the state 1`] = `
+Object {
+  "count": 11,
+  "sideMenu": Object {
+    "isOpen": true,
+  },
+}
+`;
+
+exports[`return returns a store and useStore 1`] = `[Function]`;
+
+exports[`return returns a store and useStore 2`] = `
+<ContextProvider
+  value={
+    Array [
+      Object {
+        "count": 0,
+        "sideMenu": Object {
+          "isOpen": false,
+        },
+      },
+      Object {
+        "decrement": [Function],
+        "increment": [Function],
+        "setCount": [Function],
+        "sideMenu": Object {
+          "toggle": [Function],
+        },
+      },
+    ]
+  }
+/>
+`;

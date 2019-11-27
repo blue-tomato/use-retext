@@ -1,4 +1,4 @@
 module.exports = {
-  clearMocks: true,
-  coverageDirectory: 'coverage',
+  setupFilesAfterEnv: ['./jest.setup.js'],
+  snapshotSerializers: ['enzyme-to-json/serializer'],
 };
