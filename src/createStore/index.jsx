@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react';
-import useRetext from '..';
+import useRetext from '../useRetext';
 
 export default store => {
   const Context = createContext();

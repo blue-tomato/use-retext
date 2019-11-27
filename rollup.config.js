@@ -21,6 +21,7 @@ export default [
       file: path.resolve(pkg.main),
       format: 'umd',
       name: pkg.name,
+      exports: 'named',
       globals: { react: 'React' },
     },
   },
