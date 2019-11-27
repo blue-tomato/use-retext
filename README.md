@@ -41,3 +41,64 @@ export default ({ children, ...props }) => {
   );
 };
 ```
+
+# Usage with `createStore`
+`Store.js`
+```js
+import { createStore } from '@blue-tomato/use-retext';
+
+const store = {
+  state: {
+    isOpen: false,
+    searchTerm: undefined,
+  },
+  reducer: {
+    setSearchTerm: (state, payload) => ({ ...state, searchTerm: payload }),
+    sideMenu: {
+      toggle: state => ({ ...state, isOpen: !state.open }),
+    },
+  },
+};
+
+const [Store, useStore] = createStore(store);
+
+export default Store,
+export { useStore };
+```
+
+`Parent.jsx`
+```jsx
+import React from 'react';
+import Store from './Store';
+import Child from './Child';
+
+export default ({ ...props }) => (
+  <Store {...props}>
+    <Child />
+  </Store>
+);
+```
+
+`Child.jsx`
+```jsx
+import React from 'react';
+import { useStore } from './Store';
+
+export default ({ ...props }) => {
+  const [state, dispatch] = useStore();
+
+  return (
+    <div {...props}>
+      <button
+        type="button"
+        onClick={() => {
+          dispatch.setSearchTerm('test');
+        }}
+      >
+        Test me!
+      </button>
+      <div>Search term: {state.searchTerm}</div>
+    </div>
+  );
+};
+```
