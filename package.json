@@ -1,6 +1,6 @@
 {
   "name": "@blue-tomato/use-retext",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "🔐 A React useReducer hook alternative to manage component state by Blue Tomato.",
   "main": "./dist/umd/index.js",
   "module": "./dist/esm/index.js",
