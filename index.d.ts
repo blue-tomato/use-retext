@@ -1,10 +1,12 @@
 interface Store {
   state: object,
-  reducers: object,
+  reducer: object,
 }
 
-type useRetext = <S extends Store>(store: S) => [S['state'], S['reducers']];
-type createStore = <S extends Store>(store: S) => [JSX.Element, useRetext]
+type Return<S extends Store> = [S['state'], S['reducer']];
+
+declare function useRetext<S extends Store>(store: S): Return<S>;
+declare function createStore<S extends Store>(store: S): [JSX.Element, () => Return<S>]
 
 export default useRetext;
 export { createStore };
