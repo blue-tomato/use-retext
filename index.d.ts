@@ -1,4 +1,3 @@
-/* eslint-disable */
 interface Store {
   state: object,
   reducers: object,
