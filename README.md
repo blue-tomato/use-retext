@@ -62,7 +62,7 @@ const store = {
 
 const [Store, useStore] = createStore(store);
 
-export default Store,
+export default Store;
 export { useStore };
 ```
 
