@@ -1,12 +1,19 @@
-interface Store {
-  state: object,
-  reducer: object,
+interface Reducer<S> {
+  [key: string]: Reducer<S> | ((state: S, payload?: any) => S);
 }
 
-type Return<S extends Store> = [S['state'], S['reducer']];
+export interface Store<S> {
+  state: S,
+  reducer: Reducer<S>,
+}
 
-declare function useRetext<S extends Store>(store: S): Return<S>;
-declare function createStore<S extends Store>(store: S): [JSX.Element, () => Return<S>]
+interface Return<T> {
+  state: Store<T>['state'],
+  dispatch: Store<T>['reducer']
+}
+
+declare function useRetext<T>(store: Store<T>): Return<T>;
+declare function createStore<T>(store: Store<T>): [JSX.Element, () => Return<T>];
 
 export default useRetext;
 export { createStore };

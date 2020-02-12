@@ -23,7 +23,7 @@ const store = {
 };
 
 export default ({ children, ...props }) => {
-  const [state, dispatch] = useRetext(store);
+  const { state, dispatch } = useRetext(store);
 
   return (
     <div {...props}>
@@ -85,7 +85,7 @@ import React from 'react';
 import { useStore } from './Store';
 
 export default ({ ...props }) => {
-  const [state, dispatch] = useStore();
+  const { state, dispatch } = useStore();
 
   return (
     <div {...props}>

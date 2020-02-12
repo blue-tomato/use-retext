@@ -22,13 +22,13 @@ describe('in application usage', () => {
     const { result } = renderHook(() => useStore(store), { wrapper: Store });
 
     act(() => {
-      result.current[1].setCount(10);
-      result.current[1].increment();
-      result.current[1].increment();
-      result.current[1].decrement();
-      result.current[1].sideMenu.toggle();
+      result.current.dispatch.setCount(10);
+      result.current.dispatch.increment();
+      result.current.dispatch.increment();
+      result.current.dispatch.decrement();
+      result.current.dispatch.sideMenu.toggle();
     });
 
-    expect(result.current[0]).toMatchSnapshot();
+    expect(result.current.state).toMatchSnapshot();
   });
 });

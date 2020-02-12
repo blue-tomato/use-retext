@@ -14,14 +14,8 @@ exports[`return returns a store and useStore 1`] = `[Function]`;
 exports[`return returns a store and useStore 2`] = `
 <ContextProvider
   value={
-    Array [
-      Object {
-        "count": 0,
-        "sideMenu": Object {
-          "isOpen": false,
-        },
-      },
-      Object {
+    Object {
+      "dispatch": Object {
         "decrement": [Function],
         "increment": [Function],
         "setCount": [Function],
@@ -29,7 +23,13 @@ exports[`return returns a store and useStore 2`] = `
           "toggle": [Function],
         },
       },
-    ]
+      "state": Object {
+        "count": 0,
+        "sideMenu": Object {
+          "isOpen": false,
+        },
+      },
+    }
   }
 />
 `;

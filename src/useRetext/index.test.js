@@ -27,14 +27,14 @@ describe('store argument', () => {
 describe('return', () => {
   it('keeps the initial state', () => {
     const { result } = getHook(store);
-    const [state] = result.current;
+    const { state } = result.current;
 
     expect(state).toMatchSnapshot();
   });
 
   it('creates a disptach object', () => {
     const { result } = getHook(store);
-    const [, dispatch] = result.current;
+    const { dispatch } = result.current;
 
     expect(dispatch).toMatchSnapshot();
   });
@@ -45,22 +45,22 @@ describe('in application usage', () => {
     const { result } = getHook(store);
 
     act(() => {
-      result.current[1].setCount(3);
-      result.current[1].increment();
-      result.current[1].increment();
-      result.current[1].decrement();
+      result.current.dispatch.setCount(3);
+      result.current.dispatch.increment();
+      result.current.dispatch.increment();
+      result.current.dispatch.decrement();
     });
 
-    expect(result.current[0].count).toMatchSnapshot();
+    expect(result.current.state.count).toMatchSnapshot();
   });
 
   it('tests the sideMenu', () => {
     const { result } = getHook(store);
 
     act(() => {
-      result.current[1].sideMenu.toggle();
+      result.current.dispatch.sideMenu.toggle();
     });
 
-    expect(result.current[0].sideMenu.isOpen).toMatchSnapshot();
+    expect(result.current.state.sideMenu.isOpen).toMatchSnapshot();
   });
 });

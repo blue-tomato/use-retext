@@ -21,5 +21,5 @@ export default store => {
   const [state, setState] = useState(initialState);
   const dispatch = useMemo(() => mapReducer(reducer, setState), [reducer]);
 
-  return [state, dispatch];
+  return { state, dispatch };
 };
