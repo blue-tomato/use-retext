@@ -1,4 +1,4 @@
-🔐 React useReducer alternative by Blue Tomato.
+🔐 A small, modern react state managment system using hooks with an simple api.
 
 # Installation
 Type `npm install @blue-tomato/use-retext` into your console

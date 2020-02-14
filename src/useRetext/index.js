@@ -1,5 +1,18 @@
 import { useMemo, useState } from 'react';
-import { assert } from '../helpers';
+import { mapValues } from 'lodash-es';
+import { assert, getType } from '../helpers';
+
+const mapActions = actions => {
+  mapValues(actions, (value, key) => {
+    const type = getType(value);
+
+    type === 'object' && null;
+
+    if (value === 0) {
+      return payload => null;
+    }
+  });
+};
 
 const mapReducer = (reducer, setState) =>
   Object.entries(reducer).reduce(
@@ -14,9 +27,12 @@ const mapReducer = (reducer, setState) =>
 export default store => {
   assert(typeof store !== 'object', 'Store is not an object');
 
-  const { state: initialState, reducer } = store;
+  const { state: initialState, actions, reducer } = store;
 
-  assert(typeof initialState !== 'object' || typeof reducer !== 'object', 'State or reducer are not an object');
+  assert(
+    typeof initialState !== 'object' || typeof actions !== 'object' || typeof reducer !== 'object',
+    'State, actions or reducer are not an object',
+  );
 
   const [state, setState] = useState(initialState);
   const dispatch = useMemo(() => mapReducer(reducer, setState), [reducer]);
