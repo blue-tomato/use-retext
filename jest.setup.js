@@ -15,12 +15,14 @@ global.store = {
       },
     },
   },
-  // This is what gets disptached
-  actions: {
-    increment: 0, // Calls all increment reducer
+  action: {
+    increment: 0,
     sideMenu: {
-      toggle: 0, // Can only call toggle in or below sideMenu
-      increment: 0, // Only calls increment in or below sideMenu
+      toggle: 0,
+      increment: 0,
+      child: {
+        toggle: 0,
+      },
     },
   },
   // This is what sets the new state

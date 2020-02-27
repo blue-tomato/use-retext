@@ -1,14 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`in application usage updates the state 1`] = `
-Object {
-  "count": 11,
-  "sideMenu": Object {
-    "isOpen": true,
-  },
-}
-`;
-
 exports[`return returns a store and useStore 1`] = `[Function]`;
 
 exports[`return returns a store and useStore 2`] = `
@@ -16,17 +7,24 @@ exports[`return returns a store and useStore 2`] = `
   value={
     Object {
       "dispatch": Object {
-        "decrement": [Function],
         "increment": [Function],
-        "setCount": [Function],
         "sideMenu": Object {
+          "child": Object {
+            "toggle": [Function],
+          },
+          "increment": [Function],
           "toggle": [Function],
         },
+        "toggle": [Function],
       },
       "state": Object {
         "count": 0,
         "sideMenu": Object {
+          "child": Object {
+            "isExpanded": false,
+          },
           "isOpen": false,
+          "maxItems": 100,
         },
       },
     }

@@ -1,18 +1,8 @@
 import { useMemo, useState } from 'react';
-import { mapValues } from 'lodash-es';
-import { assert, getType } from '../helpers';
-
-const mapActions = actions => {
-  mapValues(actions, (value, key) => {
-    const type = getType(value);
-
-    type === 'object' && null;
-
-    if (value === 0) {
-      return payload => null;
-    }
-  });
-};
+import { get } from 'lodash-es';
+import { assert } from '../helpers';
+import createDisptach from './createDispatch';
+import connectReducer from './connectReducer';
 
 const mapReducer = (reducer, setState) =>
   Object.entries(reducer).reduce(
@@ -27,14 +17,20 @@ const mapReducer = (reducer, setState) =>
 export default store => {
   assert(typeof store !== 'object', 'Store is not an object');
 
-  const { state: initialState, actions, reducer } = store;
+  const { state: initialState, action, reducer } = store;
 
   assert(
-    typeof initialState !== 'object' || typeof actions !== 'object' || typeof reducer !== 'object',
-    'State, actions or reducer are not an object',
+    typeof initialState !== 'object' || typeof action !== 'object' || typeof reducer !== 'object',
+    'State, action or reducer are not an object',
   );
 
   const [state, setState] = useState(initialState);
+  const [disptach, emitter] = createDisptach(action);
+
+  connectReducer(reducer, emitter, ({ scope, reducer: reducerFunction, payload }) => {
+    // reducerFunction(get(state, scope), payload);
+  });
+
   const dispatch = useMemo(() => mapReducer(reducer, setState), [reducer]);
 
   return { state, dispatch };

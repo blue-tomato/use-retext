@@ -24,43 +24,43 @@ describe('store argument', () => {
   });
 });
 
-describe('return', () => {
-  it('keeps the initial state', () => {
-    const { result } = getHook(store);
-    const { state } = result.current;
+// describe('return', () => {
+//   it('keeps the initial state', () => {
+//     const { result } = getHook(store);
+//     const { state } = result.current;
 
-    expect(state).toMatchSnapshot();
-  });
+//     expect(state).toMatchSnapshot();
+//   });
 
-  it('creates a disptach object', () => {
-    const { result } = getHook(store);
-    const { dispatch } = result.current;
+//   it('creates a disptach object', () => {
+//     const { result } = getHook(store);
+//     const { dispatch } = result.current;
 
-    expect(dispatch).toMatchSnapshot();
-  });
-});
+//     expect(dispatch).toMatchSnapshot();
+//   });
+// });
 
-describe('in application usage', () => {
-  it('tests the count', () => {
-    const { result } = getHook(store);
+// describe('in application usage', () => {
+//   it('tests the count', () => {
+//     const { result } = getHook(store);
 
-    act(() => {
-      result.current.dispatch.setCount(3);
-      result.current.dispatch.increment();
-      result.current.dispatch.increment();
-      result.current.dispatch.decrement();
-    });
+//     act(() => {
+//       result.current.dispatch.setCount(3);
+//       result.current.dispatch.increment();
+//       result.current.dispatch.increment();
+//       result.current.dispatch.decrement();
+//     });
 
-    expect(result.current.state.count).toMatchSnapshot();
-  });
+//     expect(result.current.state.count).toMatchSnapshot();
+//   });
 
-  it('tests the sideMenu', () => {
-    const { result } = getHook(store);
+//   it('tests the sideMenu', () => {
+//     const { result } = getHook(store);
 
-    act(() => {
-      result.current.dispatch.sideMenu.toggle();
-    });
+//     act(() => {
+//       result.current.dispatch.sideMenu.toggle();
+//     });
 
-    expect(result.current.state.sideMenu.isOpen).toMatchSnapshot();
-  });
-});
+//     expect(result.current.state.sideMenu.isOpen).toMatchSnapshot();
+//   });
+// });
