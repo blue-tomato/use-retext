@@ -1,4 +1,4 @@
-import { mapValues } from 'lodash-es';
+import mapValues from 'just-map-values';
 
 const mapValuesDeep = (object, callback, scope = '') =>
   mapValues(object, (value, key) => {

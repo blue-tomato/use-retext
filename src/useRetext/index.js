@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { get, set } from 'lodash-es';
+import get from 'just-safe-get';
+import set from 'just-safe-set';
 import { assert } from '../helpers';
 import createDispatch from './createDispatch';
 import connectReducer from './connectReducer';
@@ -21,9 +22,13 @@ export default store => {
     setState(currentState => {
       const scopedState = scope ? get(currentState, scope) : currentState;
       const result = reducerFunction(scopedState, payload);
-      const newState = scope
-        ? set({ ...currentState }, scope, { ...scopedState, ...result })
-        : { ...scopedState, ...result };
+      let newState = { ...currentState };
+
+      if (scope) {
+        set(newState, scope, { ...scopedState, ...result });
+      } else {
+        newState = { ...scopedState, ...result };
+      }
 
       return newState;
     });
