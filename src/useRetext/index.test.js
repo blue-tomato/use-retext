@@ -12,55 +12,61 @@ describe('store argument', () => {
   });
 
   it('throws an error when no state is passed', () => {
-    const { result } = getHook({ reducer: {} });
+    const { result } = getHook({ action: {}, reducer: {} });
 
     expect(result.error).toMatchSnapshot();
   });
 
   it('throws an error when no reducer is passed', () => {
-    const { result } = getHook({ state: {} });
+    const { result } = getHook({ state: {}, action: {} });
+
+    expect(result.error).toMatchSnapshot();
+  });
+
+  it('throws an error when no action is passed', () => {
+    const { result } = getHook({ state: {}, reducer: {} });
 
     expect(result.error).toMatchSnapshot();
   });
 });
 
-// describe('return', () => {
-//   it('keeps the initial state', () => {
-//     const { result } = getHook(store);
-//     const { state } = result.current;
+describe('return', () => {
+  it('keeps the initial state', () => {
+    const { result } = getHook(store);
+    const { state } = result.current;
 
-//     expect(state).toMatchSnapshot();
-//   });
+    expect(state).toMatchSnapshot();
+  });
 
-//   it('creates a disptach object', () => {
-//     const { result } = getHook(store);
-//     const { dispatch } = result.current;
+  it('creates a disptach object', () => {
+    const { result } = getHook(store);
+    const { dispatch } = result.current;
 
-//     expect(dispatch).toMatchSnapshot();
-//   });
-// });
+    expect(dispatch).toMatchSnapshot();
+  });
+});
 
-// describe('in application usage', () => {
-//   it('tests the count', () => {
-//     const { result } = getHook(store);
+describe('in application usage', () => {
+  it('increments state', () => {
+    const { result } = getHook(store);
 
-//     act(() => {
-//       result.current.dispatch.setCount(3);
-//       result.current.dispatch.increment();
-//       result.current.dispatch.increment();
-//       result.current.dispatch.decrement();
-//     });
+    act(() => {
+      result.current.dispatch.increment();
+      result.current.dispatch.sideMenu.increment();
+    });
 
-//     expect(result.current.state.count).toMatchSnapshot();
-//   });
+    expect(result.current.state.count).toEqual(1);
+    expect(result.current.state.sideMenu.maxItems).toEqual(102);
+  });
 
-//   it('tests the sideMenu', () => {
-//     const { result } = getHook(store);
+  it('toggles state', () => {
+    const { result } = getHook(store);
 
-//     act(() => {
-//       result.current.dispatch.sideMenu.toggle();
-//     });
+    act(() => {
+      result.current.dispatch.sideMenu.toggle();
+    });
 
-//     expect(result.current.state.sideMenu.isOpen).toMatchSnapshot();
-//   });
-// });
+    expect(result.current.state.sideMenu.isOpen).toEqual(true);
+    expect(result.current.state.sideMenu.child.isExpanded).toEqual(true);
+  });
+});

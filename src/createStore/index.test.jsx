@@ -16,19 +16,17 @@ describe('return', () => {
   });
 });
 
-// describe('in application usage', () => {
-//   it('updates the state', () => {
-//     const [Store, useStore] = createStore(store);
-//     const { result } = renderHook(() => useStore(store), { wrapper: Store });
+describe('in application usage', () => {
+  it('updates the state', () => {
+    const [Store, useStore] = createStore(store);
+    const { result } = renderHook(() => useStore(store), { wrapper: Store });
 
-//     act(() => {
-//       result.current.dispatch.setCount(10);
-//       result.current.dispatch.increment();
-//       result.current.dispatch.increment();
-//       result.current.dispatch.decrement();
-//       result.current.dispatch.sideMenu.toggle();
-//     });
+    act(() => {
+      result.current.dispatch.increment();
+      result.current.dispatch.sideMenu.increment();
+      result.current.dispatch.sideMenu.toggle();
+    });
 
-//     expect(result.current.state).toMatchSnapshot();
-//   });
-// });
+    expect(result.current.state).toMatchSnapshot();
+  });
+});

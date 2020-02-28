@@ -1,6 +1,6 @@
 import { mapValuesDeep } from '../../helpers';
 
-export default (reducer, emitter, onCall) =>
+export default (reducer, emitter, onCall) => {
   mapValuesDeep(reducer, ({ key, value, scope: reducerScope }) => {
     emitter.on(key, ({ scope: emitterScope, payload }) => {
       // Ensure that the reducer-scope starts at least with the emitter-scope
@@ -9,3 +9,4 @@ export default (reducer, emitter, onCall) =>
       onCall({ key, scope: reducerScope, reducer: value, payload });
     });
   });
+};
