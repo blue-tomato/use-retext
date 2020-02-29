@@ -1,20 +1,23 @@
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { Store } from './src/Store';
 
 configure({ adapter: new Adapter() });
 
-global.store = {
-  // This is our state
-  state: {
-    count: 0,
-    sideMenu: {
-      isOpen: false,
-      maxItems: 100,
-      child: {
-        isExpanded: false,
-      },
+const state = {
+  count: 0,
+  sideMenu: {
+    isOpen: false,
+    maxItems: 100,
+    child: {
+      isExpanded: false,
     },
   },
+};
+
+const store: Store<typeof state> = {
+  // This is our state
+  state,
   action: {
     increment: 0,
     sideMenu: {
@@ -38,3 +41,5 @@ global.store = {
     },
   },
 };
+
+global.store = store;

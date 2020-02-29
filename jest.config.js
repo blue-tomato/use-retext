@@ -1,5 +1,6 @@
 module.exports = {
-  setupFilesAfterEnv: ['./jest.setup.js'],
+  preset: 'ts-jest',
+  // testEnvironment: 'node',
   snapshotSerializers: ['enzyme-to-json/serializer'],
-  transformIgnorePatterns: ['<rootDir>/node_modules/(?!lodash-es)'],
+  setupFilesAfterEnv: ['./jest.setup.ts'],
 };

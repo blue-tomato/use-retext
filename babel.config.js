@@ -12,9 +12,10 @@ module.exports = api => {
               },
             },
           ],
+          // '@babel/preset-typescript',
           '@babel/preset-react',
         ]
-      : ['@babel/preset-react'],
+      : [/* '@babel/preset-typescript', */ '@babel/preset-react'],
     sourceType: 'unambiguous',
   };
 };
