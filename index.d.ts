@@ -1,9 +1,14 @@
+interface Action<S> {
+
+}
+
 interface Reducer<S> {
   [key: string]: Reducer<S> | ((state: S, payload?: any) => S);
 }
 
 export interface Store<S> {
   state: S,
+  action: Action<S>,
   reducer: Reducer<S>,
 }
 
