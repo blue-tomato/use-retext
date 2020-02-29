@@ -1,6 +1,12 @@
 import mapValues from 'just-map-values';
 
-const mapValuesDeep = (object, callback, scope = '') =>
+interface CallbackObject {
+  key: string;
+  value: any;
+  scope: string;
+}
+
+const mapValuesDeep = (object: object, callback: (event: CallbackObject) => any, scope = '') =>
   mapValues(object, (value, key) => {
     const type = typeof value;
 

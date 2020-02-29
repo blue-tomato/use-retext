@@ -1,8 +1,9 @@
 import React, { createContext, useContext } from 'react';
 import useRetext from '../useRetext';
+import { Store } from '../Store';
 
-export default store => {
-  const Context = createContext();
+export default <S,>(store: Store<S>) => {
+  const Context = createContext({});
   const Store = ({ ...props }) => {
     const { state, dispatch } = useRetext(store);
 
