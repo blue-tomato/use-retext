@@ -6,7 +6,7 @@ import createDispatch from './createDispatch';
 import connectReducer from './connectReducer';
 import { Store } from '../Store';
 
-export default <S>(store: Store<S>) => {
+export default (store: Store) => {
   assert(typeof store !== 'object', 'Store is not an object');
 
   const { state: initialState, action, reducer } = store;
@@ -20,7 +20,7 @@ export default <S>(store: Store<S>) => {
   const [dispatch, emitter] = createDispatch(action);
 
   connectReducer(reducer, emitter, ({ scope, reducer: reducerFunction, payload }) => {
-    setState(currentState => {
+    setState((currentState: any) => {
       const scopedState = scope ? get(currentState, scope) : currentState;
       const result = reducerFunction(scopedState, payload);
       let newState = { ...currentState };

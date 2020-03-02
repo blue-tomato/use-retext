@@ -1,30 +1,31 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import useRetext from '.';
+import { Store } from '../Store';
 
-const getHook = store => renderHook(() => useRetext(store));
+const getHook = (store: Store) => renderHook(() => useRetext(store));
 const { store } = global;
 
 describe('store argument', () => {
   it('throws an error when no object is passed', () => {
-    const { result } = getHook();
+    const { result } = getHook(store);
 
     expect(result.error).toMatchSnapshot();
   });
 
   it('throws an error when no state is passed', () => {
-    const { result } = getHook({ action: {}, reducer: {} });
+    const { result } = getHook({ action: {}, reducer: {} } as Store);
 
     expect(result.error).toMatchSnapshot();
   });
 
   it('throws an error when no reducer is passed', () => {
-    const { result } = getHook({ state: {}, action: {} });
+    const { result } = getHook({ state: {}, action: {} } as Store);
 
     expect(result.error).toMatchSnapshot();
   });
 
   it('throws an error when no action is passed', () => {
-    const { result } = getHook({ state: {}, reducer: {} });
+    const { result } = getHook({ state: {}, reducer: {} } as Store);
 
     expect(result.error).toMatchSnapshot();
   });

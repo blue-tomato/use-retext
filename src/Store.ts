@@ -1,15 +1,15 @@
-export interface Action<S> {
-  [key: string]: Action<S> | 0;
+export interface Action {
+  [key: string]: Action | 0;
 }
 
-export type ReducerFuntion<S> = ((state: S, payload?: any) => S)
+export type ReducerFuntion = ((state: any, payload?: any) => object)
 
-export interface Reducer<S> {
-  [key: string]: Reducer<S> | ReducerFuntion<S>;
+export interface Reducer {
+  [key: string]: Reducer | ReducerFuntion;
 }
 
-export interface Store<S> {
-  state: S,
-  action: Action<S>,
-  reducer: Reducer<S>,
+export interface Store {
+  state: any,
+  action: Action,
+  reducer: Reducer,
 }

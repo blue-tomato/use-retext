@@ -2,14 +2,14 @@ import { Emitter } from 'mitt';
 import { mapValuesDeep } from '../../helpers';
 import { Reducer, ReducerFuntion } from '../../Store';
 
-interface OnCallObject<S> {
+interface OnCallObject {
   key: string;
   scope: string;
-  reducer: ReducerFuntion<S>;
+  reducer: ReducerFuntion;
   payload: any;
 }
 
-export default <S>(reducer: Reducer<S>, emitter: Emitter, onCall: (event: OnCallObject<S>) => void) => {
+export default (reducer: Reducer, emitter: Emitter, onCall: (event: OnCallObject) => void) => {
   mapValuesDeep(reducer, ({ key, value, scope: reducerScope }) => {
     emitter.on(key, ({ scope: emitterScope, payload }) => {
       // Ensure that the reducer-scope starts at least with the emitter-scope

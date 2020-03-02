@@ -4,20 +4,17 @@ import { Store } from './src/Store';
 
 configure({ adapter: new Adapter() });
 
-const state = {
-  count: 0,
-  sideMenu: {
-    isOpen: false,
-    maxItems: 100,
-    child: {
-      isExpanded: false,
+const store: Store = {
+  state: {
+    count: 0,
+    sideMenu: {
+      isOpen: false,
+      maxItems: 100,
+      child: {
+        isExpanded: false,
+      },
     },
   },
-};
-
-const store: Store<typeof state> = {
-  // This is our state
-  state,
   action: {
     increment: 0,
     sideMenu: {
