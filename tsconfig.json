@@ -9,6 +9,7 @@
     "declarationDir": "dist/types/"
   },
   "include": [
+    "./types.d.ts",
     "./**/*.ts"
   ]
 }

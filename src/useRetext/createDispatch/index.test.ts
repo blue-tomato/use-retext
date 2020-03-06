@@ -2,10 +2,15 @@ import createDispatch from '.';
 
 const { store } = global;
 
+interface Event {
+  scope: string;
+  payload: any;
+}
+
 describe('createDispatch', () => {
   it('dispatch works', () => {
     const [dispatch, emitter] = createDispatch(store.action);
-    const test = ({ scope, payload }) => expect({ scope, payload }).toMatchSnapshot();
+    const test = ({ scope, payload }: Event) => expect({ scope, payload }).toMatchSnapshot();
 
     emitter.on('increment', test);
     emitter.on('toggle', test);

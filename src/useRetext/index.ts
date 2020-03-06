@@ -2,11 +2,11 @@ import { useState } from 'react';
 import get from 'just-safe-get';
 import set from 'just-safe-set';
 import { assert } from '../helpers';
+import { Store } from '../Store';
 import createDispatch from './createDispatch';
 import connectReducer from './connectReducer';
-import { Store } from '../Store';
 
-export default (store: Store) => {
+export default <S>(store: Store<S>) => {
   assert(typeof store !== 'object', 'Store is not an object');
 
   const { state: initialState, action, reducer } = store;

@@ -1,5 +1,9 @@
-declare module NodeJS  {
-  interface Global<S> {
-      store: S
+import { Store } from './src/Store';
+
+declare global {
+  namespace NodeJS {
+    interface Global {
+      store: Store;
+    }
   }
 }

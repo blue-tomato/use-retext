@@ -6,7 +6,7 @@ interface CallbackObject {
   scope: string;
 }
 
-const mapValuesDeep = (object: object, callback: (event: CallbackObject) => any, scope = '') =>
+const mapValuesDeep = (object: object, callback: (event: CallbackObject) => any, scope = ''): object =>
   mapValues(object, (value, key) => {
     const type = typeof value;
 
