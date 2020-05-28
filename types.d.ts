@@ -1,9 +1,2 @@
-import { Store } from './src/Store';
-
-declare global {
-  namespace NodeJS {
-    interface Global {
-      store: Store;
-    }
-  }
-}
+declare module 'just-reduce-object';
+declare module 'just-typeof';

@@ -7,9 +7,5 @@
     "jsx": "react",
     "declaration": true,
     "declarationDir": "dist/types/"
-  },
-  "include": [
-    "./types.d.ts",
-    "./**/*.ts"
-  ]
+  }
 }

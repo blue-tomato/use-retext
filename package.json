@@ -48,8 +48,10 @@
   },
   "dependencies": {
     "just-map-values": "^1.1.0",
+    "just-reduce-object": "^1.1.0",
     "just-safe-get": "^2.0.0",
     "just-safe-set": "^2.1.0",
+    "just-typeof": "^2.0.0",
     "mitt": "^1.2.0"
   },
   "devDependencies": {

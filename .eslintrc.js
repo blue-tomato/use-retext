@@ -37,7 +37,7 @@ module.exports = {
       plugins: ['@typescript-eslint'],
       rules: {
         '@typescript-eslint/explicit-function-return-type': 'off',
-        // 'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
+        'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
       },
     },
   ],
