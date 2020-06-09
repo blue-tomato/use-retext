@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`connectReducer 1 1`] = `
+exports[`connectReducer connects reducer with emitter 1`] = `
 Object {
   "key": "increment",
   "payload": undefined,
@@ -9,7 +9,7 @@ Object {
 }
 `;
 
-exports[`connectReducer 1 2`] = `
+exports[`connectReducer connects reducer with emitter 2`] = `
 Object {
   "key": "increment",
   "payload": undefined,
@@ -18,7 +18,7 @@ Object {
 }
 `;
 
-exports[`connectReducer 1 3`] = `
+exports[`connectReducer connects reducer with emitter 3`] = `
 Object {
   "key": "toggle",
   "payload": undefined,
@@ -27,7 +27,7 @@ Object {
 }
 `;
 
-exports[`connectReducer 1 4`] = `
+exports[`connectReducer connects reducer with emitter 4`] = `
 Object {
   "key": "toggle",
   "payload": undefined,
@@ -36,7 +36,7 @@ Object {
 }
 `;
 
-exports[`connectReducer 1 5`] = `
+exports[`connectReducer connects reducer with emitter 5`] = `
 Object {
   "key": "toggle",
   "payload": undefined,

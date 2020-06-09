@@ -30,15 +30,24 @@ const store: Store<typeof initialState> = {
   // This is what sets the new state
   reducer: {
     toggle: () => ({}), // Never gets called
-    increment: state => ({ count: state.count + 1 }),
+    increment: (state) => ({ count: state.count + 1 }),
     sideMenu: {
-      toggle: state => ({ isOpen: !state.isOpen }), // Can only change state of sideMenu
-      increment: state => ({ maxItems: state.maxItems + 1 }),
+      toggle: (state) => ({ isOpen: !state.isOpen }), // Can only change state of sideMenu
+      increment: (state) => ({ maxItems: state.maxItems + 1 }),
       child: {
-        toggle: state => ({ isExpanded: !state.isExpanded }),
+        toggle: (state) => ({ isExpanded: !state.isExpanded }),
       },
     },
   },
 };
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace NodeJS {
+    interface Global {
+      store: typeof store;
+    }
+  }
+}
 
 global.store = store;
