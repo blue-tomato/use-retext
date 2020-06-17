@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`return returns a store and useStore 1`] = `[Function]`;
-
-exports[`return returns a store and useStore 2`] = `[Function]`;

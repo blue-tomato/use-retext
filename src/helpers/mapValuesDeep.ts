@@ -1,14 +1,15 @@
 import mapValues from 'just-map-values';
+import typeOf from 'just-typeof';
 
 interface CallbackObject {
   key: string;
-  value: any;
+  value: unknown;
   scope: string;
 }
 
-const mapValuesDeep = (object: object, callback: (event: CallbackObject) => any, scope = ''): object =>
+const mapValuesDeep = (object: object, callback: (event: CallbackObject) => unknown, scope = ''): object =>
   mapValues(object, (value, key) => {
-    const type = typeof value;
+    const type = typeOf(value);
 
     if (type === 'object') {
       // Update the scope and map the object
