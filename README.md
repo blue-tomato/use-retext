@@ -1,3 +1,5 @@
+# !!! This project will be continued under the name [hinten](https://github.com/wa4-fearless-otter/hinten). !!!
+
 🔐 A small, scoped react state managment system using hooks with an simple api.
 
 # Index
